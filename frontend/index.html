@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WiFi Body Sensor // Telus Wi-Fi Modem Through-Wall Radar</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header HUD -->
+    <header>
+      <div class="brand">
+        <div class="logo-radar"></div>
+        <div class="title-wrap">
+          <h1>WIFI BODY SENSOR</h1>
+          <p>THROUGH-WALL RF PERTURBATION & VITAL RECOGNITION FOR TELUS WI-FI MODEMS</p>
+        </div>
+      </div>
+      <div class="header-status">
+        <div id="statusBadge" class="status-badge">
+          <div class="status-dot"></div>
+          <span id="statusText">CONNECTING TELEMETRY...</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Telemetry Ribbon -->
+    <div class="telemetry-ribbon">
+      <div class="telemetry-card">
+        <div class="label">Connected SSID</div>
+        <div id="elSsid" class="value">--</div>
+        <div id="elBssid" class="sub">Scanning...</div>
+      </div>
+      <div class="telemetry-card">
+        <div class="label">Signal Carrier (RSSI)</div>
+        <div id="elRssi" class="value">-- dBm</div>
+        <div id="elFreq" class="sub">-- MHz</div>
+      </div>
+      <div class="telemetry-card">
+        <div class="label">PHY Link Speeds</div>
+        <div id="elRates" class="value">↓ -- / ↑ -- Mbps</div>
+        <div class="sub">802.11ax Adaptive MCS</div>
+      </div>
+      <div class="telemetry-card">
+        <div class="label">Sub-ms RTT Dispersion</div>
+        <div id="elRtt" class="value">-- ms</div>
+        <div class="sub">MAC Layer Micro-Contention</div>
+      </div>
+    </div>
+
+    <!-- Main Visualizer Grid -->
+    <div class="main-grid">
+      <!-- Left Column: Polar Radar and Gauge -->
+      <div class="hud-panel">
+        <div class="panel-header">
+          <div class="panel-title">Through-Wall Polar Cross-Section</div>
+          <span style="font-size: 0.7rem; color: var(--accent-cyan);">FOV: 160°</span>
+        </div>
+        <div class="radar-container">
+          <canvas id="radarCanvas"></canvas>
+          <div class="radar-overlay-stats">
+            <div>FRESNEL ZONE: 5.24 GHz (λ ≈ 5.7cm)</div>
+            <div>TRANSMIT POWER: 100 mW EIRP</div>
+          </div>
+        </div>
+
+        <div class="meter-section">
+          <div class="gauge-wrap">
+            <canvas id="gaugeCanvas"></canvas>
+            <div class="gauge-val-display">
+              <div id="gaugeNumber" class="number">0.0</div>
+              <div class="unit">PERTURBATION INDEX</div>
+            </div>
+          </div>
+          <div class="detection-state-banner">
+            <div id="stateLabel" class="state-badge-label">STATE: STANDBY</div>
+            <div id="stateDesc" class="state-desc-text">Calibrating ambient baseline...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Oscilloscope & Spectrogram -->
+      <div class="charts-grid">
+        <div class="hud-panel chart-card">
+          <div class="panel-header">
+            <div class="panel-title">RF Multipath Oscilloscope (Dual-Trace)</div>
+            <span style="font-size: 0.7rem; color: var(--text-muted);">TIME DOMAIN // 20 Hz</span>
+          </div>
+          <canvas id="scopeCanvas"></canvas>
+        </div>
+
+        <div class="hud-panel chart-card">
+          <div class="panel-header">
+            <div class="panel-title">Live Doppler Waterfall Spectrogram</div>
+            <span style="font-size: 0.7rem; color: var(--text-muted);">FREQ DOMAIN // 0.1 - 10.0 Hz</span>
+          </div>
+          <canvas id="spectrogramCanvas"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Control Deck -->
+    <div class="hud-panel controls-panel">
+      <div class="control-group">
+        <label>
+          <span>SENSITIVITY MULTIPLIER</span>
+          <span id="valSensitivity" class="val">1.0x</span>
+        </label>
+        <input type="range" id="sliderSensitivity" min="0.2" max="3.0" step="0.1" value="1.0">
+      </div>
+
+      <div class="control-group">
+        <label>
+          <span>WALL ATTENUATION COMPENSATION</span>
+          <span id="valWall" class="val">1.2x</span>
+        </label>
+        <input type="range" id="sliderWall" min="0.5" max="3.0" step="0.1" value="1.2">
+      </div>
+
+      <div class="button-bar">
+        <button id="btnCalibrate" class="hud-button">
+          🎯 RE-CALIBRATE BASELINE
+        </button>
+        <button id="btnAudio" class="hud-button">
+          🔈 AUDIO ALERTS: OFF
+        </button>
+        <button id="btnDemo" class="hud-button">
+          🧪 SIMULATE DISTURBANCE
+        </button>
+      </div>
+    </div>
+
+    <!-- Science & Architecture Section -->
+    <div class="science-section">
+      <h3>RF SENSING MECHANISM & PHYSICAL PRINCIPLES</h3>
+      <div class="science-grid">
+        <div class="science-card">
+          <h4>1. 5 GHz Multipath Scattering</h4>
+          <p>
+            At 5.24 GHz, electromagnetic waves penetrate drywall and non-metallic obstacles. The human body is ~70% water with high dielectric permittivity, strongly scattering and reflecting the signal into complex constructive and destructive interference waves.
+          </p>
+        </div>
+        <div class="science-card">
+          <h4>2. Microsecond Dispersion (MAC Jitter)</h4>
+          <p>
+            Human motion inside the Fresnel zone disrupts phase coherence, causing micro-drops in SNR. 802.11ax hardware dynamically triggers PHY retransmissions and MCS adaptation, producing microsecond-scale RTT latency bursts measured in real-time.
+          </p>
+        </div>
+        <div class="science-card">
+          <h4>3. Respiration vs Motion Bandpass</h4>
+          <p>
+            Normal breathing displaces the human chest wall by ~0.5–1.2 cm at 0.15–0.45 Hz (9–27 breaths/min). Human walking and movement generate Doppler perturbations in the 0.5–3.0 Hz band, extracted cleanly using real-time FFT spectral decomposition.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/static/js/radar.js"></script>
+  <script src="/static/js/oscilloscope.js"></script>
+  <script src="/static/js/spectrogram.js"></script>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
