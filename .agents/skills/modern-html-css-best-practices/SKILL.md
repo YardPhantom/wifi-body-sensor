@@ -102,3 +102,6 @@ To ensure maximum visual uniformity across desktop and mobile without micro-adju
    - `.ui-lbl`: Uppercase label `10px` mono muted.
    - `.ui-val`: Bold value `12px` mono accented.
    - Global `span` has `padding-inline: 0.25rem 0.35rem` and global `svg` has `padding-inline: 0.25rem` ensuring icons and text never touch outer borders.
+4. **Button Border-Collision Prevention:**
+   - All `button` elements have safe margins (`margin: 0.15rem 0.2rem`) and `outline-offset: 2px`.
+   - Any parent `div` or `span` containing a button enforces protective perimeter padding (`div:has(> button), span:has(> button) { padding: 0.25rem 0.35rem; }`) so buttons never collide with or touch enclosing borders/outlines.
