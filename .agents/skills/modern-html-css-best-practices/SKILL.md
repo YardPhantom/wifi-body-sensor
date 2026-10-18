@@ -32,6 +32,9 @@ Text glyphs, status badges, and SVG icons must **never** touch, collide with, or
 3. **Box Sizing & Outline Offset:**
    - Always ensure `box-sizing: border-box` across all containers.
    - When using outer focus or status borders, prefer `outline-offset: -2px` to `-3px` or an inset box shadow (`box-shadow: inset 0 0 0 1px ...`) to eliminate layout shift and prevent content clipping.
+4. **Universal SVG & Span Safe Clearance Standard:**
+   - All `svg` icons must declare `box-sizing: content-box;` and have padding in front of them (`padding-inline-start: 0.25rem` / `padding-left: 0.25rem` and `padding-inline-end: 0.25rem`) so icons never touch preceding borders, cards, or adjacent elements.
+   - All `span` text containers must have right padding (`padding-inline-end: 0.25rem` / `padding-right: 0.25rem`) with `span:empty { padding: 0; }` so that text never crowds or collides with trailing borders or adjacent badges.
 
 ---
 
