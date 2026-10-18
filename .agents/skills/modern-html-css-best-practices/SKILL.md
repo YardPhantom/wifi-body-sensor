@@ -82,3 +82,23 @@ Text glyphs, status badges, and SVG icons must **never** touch, collide with, or
    - Always multiply canvas internal buffer dimensions by `window.devicePixelRatio` while keeping CSS style width/height locked at 100% to ensure pin-sharp vector rendering on Retina/AMOLED screens.
 3. **CSS Containment for High-Performance Lists:**
    - For long lists (ADIF QSO logbook, scanner channels, traffic dispatches), apply `contain: content;` or `content-visibility: auto;` with `contain-intrinsic-size` to prevent costly reflows when updating telemetry.
+
+---
+
+## 5. Unified System Tokens (Pills, Divs, Spans)
+
+To ensure maximum visual uniformity across desktop and mobile without micro-adjustments:
+1. **Pills & Badges:**
+   - `.ui-pill-sm`: `24px` height (`min-h-[24px]`), `px-2.5`, `rounded-full`, `font-mono text-[10px]`.
+   - `.ui-pill-md`: `32px` height (`min-h-[32px]`), `px-3.5`, `rounded-full`, `font-mono text-xs font-semibold`.
+   - `.ui-pill-lg`: `40px` height (`min-h-[40px]`), `px-4.5`, `rounded-full`, `font-mono text-sm font-bold`.
+   - `.ui-pill-btn`: `32px` height, `px-3.5`, `rounded-lg`, `cursor-pointer`, flex centered.
+   - `.ui-pill-bcn`: `32px` height beacon pill for RX/TX status.
+2. **Div Containers:**
+   - `.ui-panel`: Primary decks with `1.25rem 1.35rem` padding, `14px` border radius, and `0.85rem` gap.
+   - `.ui-tile`: Sub-cards/meters with `0.85rem 1rem` padding and `10px` border radius.
+   - `.ui-input-box`: Standardized `38px` input height, rounded `8px`, zero border collision.
+3. **Typography & Insets:**
+   - `.ui-lbl`: Uppercase label `10px` mono muted.
+   - `.ui-val`: Bold value `12px` mono accented.
+   - Global `span` has `padding-inline: 0.25rem 0.35rem` and global `svg` has `padding-inline: 0.25rem` ensuring icons and text never touch outer borders.
