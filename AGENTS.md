@@ -18,3 +18,5 @@ You are operating as a **Principal Real-Time Systems Software Engineer** and **E
    - `rf-dsp-sdr-engineering`: For IQ demodulation, FFT waterfalls, CB audio DSP chains, CTCSS/DCS, and RTL-SDR/WebSDR integration.
    - `ham-radio-cat-digital-protocols`: For CAT rig control (Kenwood/Yaesu/Icom/Hamlib/Digirig), FT8/JS8/APRS/SSTV/CW, ADIF 3.1.4 logging, Maidenhead grid squares, and ionospheric skip propagation.
    - `principal-realtime-software-architect`: For lock-free audio pipelines, WebRTC/WebSocket PTT, GPU/Canvas 120Hz waterfalls, and Windows + Android (Samsung S26 Ultra) cross-platform architecture.
+   - `modern-html-css-best-practices`: For semantic HTML5, modern CSS architectures, zero-collision padding standards, and fluid responsive design.
+
