@@ -105,3 +105,7 @@ To ensure maximum visual uniformity across desktop and mobile without micro-adju
 4. **Button Border-Collision Prevention:**
    - All `button` elements have safe margins (`margin: 0.15rem 0.2rem`) and `outline-offset: 2px`.
    - Any parent `div` or `span` containing a button enforces protective perimeter padding (`div:has(> button), span:has(> button) { padding: 0.25rem 0.35rem; }`) so buttons never collide with or touch enclosing borders/outlines.
+5. **Dropdown Selectors & Site-Wide Border Clearance:**
+   - Dropdown selectors (`select`) and form inputs (`input`) have mandatory perimeter margins (`margin: 0.15rem 0.2rem`).
+   - Parents enclosing `select` or `input` enforce protective clearance (`div:has(> select), div:has(> input) { padding: 0.25rem 0.35rem; }`).
+   - No element site-wide may have outlines or borders joined, overlapping, or touching neighboring containers. Focus rings must carry `outline-offset: 2px` into empty padding buffer zones.
