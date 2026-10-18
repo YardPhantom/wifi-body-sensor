@@ -38,6 +38,9 @@ Text glyphs, status badges, and SVG icons must **never** touch, collide with, or
 5. **Button Outline / Border Buffer & Center Alignment:**
    - All `<button>` elements must maintain dedicated internal padding (`px-3.5 py-2.5` minimum) and `outline-offset: 2px` so their text, sublabels, and focus rings never overlap outlines or borders.
    - Channel preset and memory bank tiles must be center aligned (`text-center flex flex-col items-center justify-center`) with explicit center text alignment on both primary channel titles and secondary frequency readouts.
+6. **Filter & Search Bar Outlines & Relative Wrapper Insets:**
+   - Control filter bars must maintain `mb-4` to `mb-5` bottom clearance from subsequent content.
+   - Child `.relative` form wrappers (inputs, search bars, dropdown selects) must never touch the parent container's borders or outlines, enforced via `p-4 sm:p-4.5 gap-3.5` on the parent grid and inset padding (`px-0.5 py-0.5`) on each `.relative` element.
 
 ---
 
