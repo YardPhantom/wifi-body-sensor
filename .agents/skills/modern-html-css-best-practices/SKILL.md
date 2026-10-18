@@ -34,7 +34,10 @@ Text glyphs, status badges, and SVG icons must **never** touch, collide with, or
    - When using outer focus or status borders, prefer `outline-offset: -2px` to `-3px` or an inset box shadow (`box-shadow: inset 0 0 0 1px ...`) to eliminate layout shift and prevent content clipping.
 4. **Universal SVG & Span Safe Clearance Standard:**
    - All `svg` icons must declare `box-sizing: content-box;` and have padding in front of them (`padding-inline-start: 0.25rem` / `padding-left: 0.25rem` and `padding-inline-end: 0.25rem`) so icons never touch preceding borders, cards, or adjacent elements.
-   - All `span` text containers must have padding space on both the left and right (`padding-inline: 0.25rem` / `padding-left: 0.25rem; padding-right: 0.25rem;`) with `span:empty { padding: 0; }` so that text never crowds or collides with preceding or trailing borders, outlines, or adjacent badges.
+   - All `span` text containers must always have right padding (`padding-inline-end: 0.35rem` / `padding-right: 0.35rem`) alongside leading padding (`padding-inline-start: 0.25rem`) with `span:empty { padding: 0; }` so that text never crowds or collides with preceding or trailing borders, outlines, or adjacent badges.
+5. **Button Outline / Border Buffer & Center Alignment:**
+   - All `<button>` elements must maintain dedicated internal padding (`px-3.5 py-2.5` minimum) and `outline-offset: 2px` so their text, sublabels, and focus rings never overlap outlines or borders.
+   - Channel preset and memory bank tiles must be center aligned (`text-center flex flex-col items-center justify-center`) with explicit center text alignment on both primary channel titles and secondary frequency readouts.
 
 ---
 
