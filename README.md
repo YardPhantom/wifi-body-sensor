@@ -76,3 +76,7 @@ The dashboard will automatically open in your default browser at:
 1. **Geometry**: For maximum through-wall sensitivity, position your desktop PC so that the wall you want to monitor lies along the line-of-sight path between the PC's antennas and your Telus modem.
 2. **Frequency Band**: Ensure your PC is connected to the **5 GHz network** (e.g. Channel 48, 5240 MHz), as 5 GHz ($\lambda \approx 5.7\text{ cm}$) provides significantly higher spatial resolution for human motion than 2.4 GHz.
 3. **Initial Calibration**: When starting the app, keep the target room still for 5 seconds and click **Re-Calibrate Baseline**.
+
+---
+
+Built by [Trevor Heshka](https://trevorheshka.com).
