@@ -2,6 +2,10 @@
 
 **Through-Wall Human Motion & Respiration Sensing for the Telus Wi-Fi Modem**
 
+![WiFi Body Sensor tactical dashboard](docs/screenshot.png)
+
+*Real dashboard UI (`frontend/`) rendered headless with simulated telemetry frames.*
+
 ---
 
 ## 📡 Overview
