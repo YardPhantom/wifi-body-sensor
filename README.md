@@ -84,3 +84,11 @@ The dashboard will automatically open in your default browser at:
 ---
 
 Built by [Trevor Heshka](https://trevorheshka.com).
+
+---
+
+## Live app & author
+
+- **Live:** [Wi-Fi body sensor write-up](https://trevorheshka.com/projects/wifi-body-sensor/)
+- Built by [Trevor Heshka](https://trevorheshka.com/about/) · [Hesh Co.](https://trevorheshka.com/services/), Nanaimo, BC
+- More projects: https://trevorheshka.com/projects/
